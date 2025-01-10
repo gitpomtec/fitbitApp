@@ -267,6 +267,37 @@ app = fitbitApp.app(access_token, refresh_token, client_id, curdir)
 # Get Profile
 # print(app.Profile())
 ```
+For example, if you want to refresh the token automatically, it can be written like this.
+```Python:TestFitbit.py
+import json
+import fitbitApp
+import os
+
+curdir = os.path.dirname(__file__) + "/"
+
+loginRes = "expired_token"
+i = 1
+while(loginRes == "expired_token"):
+    config_json = open("{}Config.json".format(curdir), "r")
+    token_json = open("{}Token.json".format(curdir), "r")
+    CONFIG = json.load(config_json)
+    TOKEN = json.load(token_json)
+    
+    access_token = TOKEN["access_token"]
+    refresh_token = TOKEN["refresh_token"]
+    client_id = CONFIG["CLIENT_ID"]
+
+    app = fitbitApp.app(access_token, refresh_token, client_id, curdir)
+
+    _ = app.Profile()
+    try:
+        loginRes = _.get("errors")[0].get("errorType")
+        print("login err {}".format(i))
+        i += 1
+    except:
+        print("login ok")
+```
+
 
 ## Reference URL
 - Developer Page https://dev.fitbit.com/apps
