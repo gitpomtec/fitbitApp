@@ -295,7 +295,8 @@ while(loginRes == "expired_token"):
         print("login err {}".format(i))
         i += 1
     except:
-        print("login ok")
+        loginRes = "login ok"
+        print(loginRes)
 ```
 
 
