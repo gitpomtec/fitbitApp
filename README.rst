@@ -16,6 +16,9 @@ the v1.x implementation. If you need the legacy behavior, pin to ``fitbitApp<2.0
 2. Changelog
 ------------
 
+- v2.1.0: Added convenience wrapper methods for nearly all remaining Google Health API data types
+  (read-only only). Most are based on confirmed filter patterns but not yet individually verified
+  against live data; see GitHub README for details.
 - v2.0.0: Full migration to the Google Health API. Breaking change, no backward compatibility with v1.x.
 - v1.1.0: Updated to support Fitbit Sleep API v1.2 and improved authentication logic.
 - v1.0.0: Initial release with support for activity, heart rate, sleep, SpO2, weight, and other endpoints.

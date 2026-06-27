@@ -120,6 +120,14 @@ pytest tests/ -v
 
 ## 4. Changelog
 
+- **v2.1.0**: Added convenience wrapper methods for nearly all remaining Google Health API data
+  types (read-only: list/reconcile/rollUp/dailyRollUp — no create/update/delete). Methods for
+  `steps`, `heart-rate`, `sleep`, `weight`, `body-fat`, `daily-heart-rate-variability`,
+  `daily-resting-heart-rate`, `active-zone-minutes`, `calories-in-heart-rate-zone`, `height`, and
+  `exercise` have been tested against real data. **The remaining ~28 methods follow the same
+  filter patterns but have not yet been individually verified against the live API** — if you hit
+  a `400 INVALID_DATA_POINT_FILTER` error, please open an issue with the response body so the
+  filter can be corrected (this is exactly how the tested methods were fixed during development).
 - **v2.0.0**: Full migration from the legacy Fitbit Web API to the Google Health API. Breaking change —
   no backward compatibility with v1.x.
 - v1.1.0: Updated to support Fitbit Sleep API v1.2 and improved authentication logic.
