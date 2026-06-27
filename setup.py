@@ -44,9 +44,9 @@ setup(
 
     url=url,
 
-    description='fitbit WEB API wrapper',
+    description='Google Health API wrapper (formerly Fitbit Web API wrapper)',
     long_description=long_description,
-    keywords='fitbit',
+    keywords='fitbit google health api',
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
