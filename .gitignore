@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# tests/配下にコピーした実際の認証情報(リポジトリルートのものはプレースホルダーなので対象外)
+tests/Config.json
+tests/Token.json
