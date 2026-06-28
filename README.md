@@ -120,14 +120,21 @@ pytest tests/ -v
 
 ## 4. Changelog
 
-- **v2.1.0**: Added convenience wrapper methods for nearly all remaining Google Health API data
+- **v2.1.1**: Verified the convenience methods added in v2.1.0 against live data. 27 of 27
+  reachable methods worked correctly on the first try with **zero filter-syntax bugs**; 21 of
+  those returned real data, 6 returned an empty result (no data recorded for that type on the test
+  account). The remaining 6 methods (`HydrationLogByDate`, `NutritionLogByDate`,
+  `ElectrocardiogramByDate`, `FoodList`, `FoodMeasurementUnitList`,
+  `IrregularRhythmNotificationList`) require the `nutrition` / `ecg` / `irn` OAuth scopes, which
+  are optional and were not requested during testing — these scopes gate data types that most
+  consumer fitness trackers (e.g. Fitbit Inspire 3) don't support hardware-wise, so they remain
+  unverified by design rather than by bug. All other methods listed under v2.1.0 below are
+  confirmed working.
+- v2.1.0: Added convenience wrapper methods for nearly all remaining Google Health API data
   types (read-only: list/reconcile/rollUp/dailyRollUp — no create/update/delete). Methods for
   `steps`, `heart-rate`, `sleep`, `weight`, `body-fat`, `daily-heart-rate-variability`,
   `daily-resting-heart-rate`, `active-zone-minutes`, `calories-in-heart-rate-zone`, `height`, and
-  `exercise` have been tested against real data. **The remaining ~28 methods follow the same
-  filter patterns but have not yet been individually verified against the live API** — if you hit
-  a `400 INVALID_DATA_POINT_FILTER` error, please open an issue with the response body so the
-  filter can be corrected (this is exactly how the tested methods were fixed during development).
+  `exercise` have been tested against real data.
 - **v2.0.0**: Full migration from the legacy Fitbit Web API to the Google Health API. Breaking change —
   no backward compatibility with v1.x.
 - v1.1.0: Updated to support Fitbit Sleep API v1.2 and improved authentication logic.

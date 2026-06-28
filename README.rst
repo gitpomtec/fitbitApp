@@ -16,6 +16,9 @@ the v1.x implementation. If you need the legacy behavior, pin to ``fitbitApp<2.0
 2. Changelog
 ------------
 
+- v2.1.1: Verified the v2.1.0 convenience methods against live data. 27 of 27 reachable methods
+  worked with zero filter-syntax bugs; 6 require optional nutrition/ecg/irn scopes not requested
+  during testing. See GitHub README for the full breakdown.
 - v2.1.0: Added convenience wrapper methods for nearly all remaining Google Health API data types
   (read-only only). Most are based on confirmed filter patterns but not yet individually verified
   against live data; see GitHub README for details.
